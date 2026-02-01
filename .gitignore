@@ -1,0 +1,38 @@
+# Secrets - NEVER commit these
+.env
+*.env
+.env.*
+!.env.example
+
+# OpenClaw credentials
+gmail-credentials.json
+google-token.json
+google-token.json.*
+*.expired
+identity/
+devices/
+credentials/
+openclaw.json
+.env.save
+exec-approvals.json
+
+# Backup files with secrets
+*.bak
+*.bak.*
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# Logs
+logs/
+*.log
+
+# OS
+.DS_Store
