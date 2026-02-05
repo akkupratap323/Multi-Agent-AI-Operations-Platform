@@ -1,0 +1,42 @@
+{
+  "name": "incident-commander",
+  "version": "2.0.0",
+  "description": "AI-powered incident management system for AWS infrastructure — monitors, diagnoses, responds, resolves, and postmortems automatically",
+  "main": "scripts/monitor.js",
+  "scripts": {
+    "start": "pm2 start ecosystem.config.js",
+    "stop": "pm2 stop ecosystem.config.js",
+    "restart": "pm2 restart ecosystem.config.js",
+    "logs": "pm2 logs",
+    "monitor": "node scripts/monitor.js",
+    "slack-bot": "node scripts/slack_bot.js",
+    "scheduler": "node scripts/scheduler.js",
+    "setup-db": "node scripts/setup_db.js && node scripts/setup_db_v2.js",
+    "seed": "node scripts/seed_data.js",
+    "status": "pm2 status"
+  },
+  "dependencies": {
+    "@google-cloud/local-auth": "^3.0.1",
+    "dotenv": "^16.4.5",
+    "googleapis": "^171.4.0",
+    "node-cron": "^3.0.3",
+    "pg": "^8.18.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "incident-management",
+    "devops",
+    "sre",
+    "aws",
+    "monitoring",
+    "pagerduty",
+    "slack",
+    "ai",
+    "gemini",
+    "openai"
+  ],
+  "author": "Aditya — Nester Labs",
+  "license": "MIT"
+}
