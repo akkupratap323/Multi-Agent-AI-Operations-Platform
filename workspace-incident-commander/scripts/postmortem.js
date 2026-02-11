@@ -1,0 +1,196 @@
+#!/usr/bin/env node
+
+/**
+ * Stage 5: Postmortem
+ * Generates incident timeline, calculates MTTR, creates report, saves and distributes
+ */
+
+const fs = require('fs');
+const path = require('path');
+const config = require('./config');
+const db = require('./utils/db');
+const slack = require('./utils/slack');
+const email = require('./utils/email');
+const llm = require('./utils/llm');
+
+/**
+ * Generate and distribute postmortem report
+ */
+async function run(incidentId) {
+  console.log(`\n📝 [POSTMORTEM] Generating report for incident #${incidentId}`);
+
+  // Fetch incident and timeline from DB
+  const incident = await db.getIncident(incidentId);
+  if (!incident) {
+    console.error('Incident not found in database');
+    return;
+  }
+
+  const timeline = await db.getTimeline(incidentId);
+
+  // Calculate MTTR
+  let mttrStr = 'N/A';
+  if (incident.detected_at && incident.resolved_at) {
+    const mttr = Math.round((new Date(incident.resolved_at) - new Date(incident.detected_at)) / 1000);
+    mttrStr = mttr < 60 ? `${mttr} seconds` : `${Math.round(mttr / 60)} minutes`;
+  }
+
+  // Generate LLM postmortem
+  console.log('  Calling LLM for postmortem analysis...');
+  const analysis = await llm.generatePostmortem(incident, timeline);
+
+  // Build markdown report
+  const report = buildMarkdownReport(incident, timeline, analysis, mttrStr);
+
+  // Save to incidents/ directory
+  const filename = `${incident.incident_number}.md`;
+  const filepath = path.join(config.INCIDENTS_DIR, filename);
+  fs.writeFileSync(filepath, report);
+  console.log(`  Saved: ${filepath}`);
+
+  // Post summary to war room
+  if (incident.war_room_channel) {
+    const slackSummary = buildSlackSummary(incident, analysis, mttrStr);
+    await slack.postMessage(incident.war_room_channel, slackSummary);
+  }
+
+  // Post to main incidents channel
+  const incidentsChannel = await slack.getIncidentsChannel();
+  await slack.postMessage(incidentsChannel,
+    `📝 *Postmortem Ready — ${incident.incident_number}*\n` +
+    `MTTR: ${mttrStr} | Severity: ${incident.severity}\n` +
+    `${analysis?.summary || 'Report saved to incidents directory.'}`
+  );
+
+  // Email postmortem
+  const emailSent = await email.sendIncidentEmail(
+    config.STAKEHOLDER_EMAILS,
+    `[Postmortem] ${incident.incident_number} - ${incident.service_type}/${incident.resource_id}`,
+    report
+  );
+
+  // Update DB
+  await db.updateIncident(incidentId, {
+    status: 'postmortem_complete',
+    postmortemAt: new Date().toISOString()
+  });
+
+  await db.recordTimeline(incidentId, 'postmortem_generated',
+    `Postmortem report generated and distributed (Slack, Email, File)`
+  );
+
+  console.log('  Postmortem complete');
+}
+
+/**
+ * Build full markdown postmortem report
+ */
+function buildMarkdownReport(incident, timeline, analysis, mttrStr) {
+  const lines = [
+    `# Incident Postmortem: ${incident.incident_number}`,
+    '',
+    `**Severity:** ${incident.severity}`,
+    `**Service:** ${incident.service_type} / ${incident.resource_id}`,
+    `**Metric:** ${incident.metric} = ${incident.metric_value} (threshold: ${incident.threshold_value})`,
+    `**MTTR:** ${mttrStr}`,
+    `**Status:** ${incident.status}`,
+    '',
+    `**Detected:** ${formatTime(incident.detected_at)}`,
+    `**Diagnosed:** ${formatTime(incident.diagnosed_at)}`,
+    `**Responded:** ${formatTime(incident.responded_at)}`,
+    `**Approved:** ${formatTime(incident.approved_at)}`,
+    `**Resolved:** ${formatTime(incident.resolved_at)}`,
+    '',
+    '---',
+    '',
+    '## Summary',
+    analysis?.summary || 'No AI-generated summary available.',
+    '',
+    '## Root Cause Analysis',
+    incident.root_cause || 'Unknown',
+    '',
+    analysis?.rootCauseAnalysis || '',
+    '',
+    `**Confidence:** ${Math.round((incident.confidence || 0) * 100)}%`,
+    '',
+    '## Impact',
+    analysis?.impact || 'Impact assessment not available.',
+    '',
+    '## Timeline',
+    ''
+  ];
+
+  for (const event of timeline) {
+    lines.push(`- **${formatTime(event.created_at)}** — \`${event.event_type}\`: ${event.description}`);
+  }
+
+  lines.push('');
+
+  if (analysis?.whatWentWell) {
+    lines.push('## What Went Well');
+    for (const item of analysis.whatWentWell) {
+      lines.push(`- ${item}`);
+    }
+    lines.push('');
+  }
+
+  if (analysis?.whatWentWrong) {
+    lines.push('## What Went Wrong');
+    for (const item of analysis.whatWentWrong) {
+      lines.push(`- ${item}`);
+    }
+    lines.push('');
+  }
+
+  if (analysis?.actionItems) {
+    lines.push('## Action Items');
+    for (const item of analysis.actionItems) {
+      lines.push(`- [${item.priority.toUpperCase()}] ${item.description} (Owner: ${item.owner})`);
+    }
+    lines.push('');
+  }
+
+  if (analysis?.lessonsLearned) {
+    lines.push('## Lessons Learned');
+    for (const item of analysis.lessonsLearned) {
+      lines.push(`- ${item}`);
+    }
+    lines.push('');
+  }
+
+  lines.push('---');
+  lines.push(`*Generated by Incident Commander (OpenClaw) at ${formatTime(new Date())}*`);
+
+  return lines.join('\n');
+}
+
+/**
+ * Build Slack-formatted summary
+ */
+function buildSlackSummary(incident, analysis, mttrStr) {
+  const actionItems = (analysis?.actionItems || [])
+    .map(a => `• [${a.priority}] ${a.description}`)
+    .join('\n');
+
+  return [
+    `📝 *Postmortem — ${incident.incident_number}*`,
+    '',
+    `*Summary:* ${analysis?.summary || 'See full report'}`,
+    '',
+    `*MTTR:* ${mttrStr}`,
+    `*Root Cause:* ${(incident.root_cause || '').substring(0, 200)}`,
+    '',
+    analysis?.impact ? `*Impact:* ${analysis.impact}` : '',
+    '',
+    actionItems ? `*Action Items:*\n${actionItems}` : '',
+    '',
+    `_Full report saved to incidents/${incident.incident_number}.md_`
+  ].filter(Boolean).join('\n');
+}
+
+function formatTime(date) {
+  if (!date) return 'N/A';
+  return new Date(date).toLocaleString('en-US', { timeZone: config.TIMEZONE });
+}
+
+module.exports = { run };
