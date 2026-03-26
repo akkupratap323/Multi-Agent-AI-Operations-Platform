@@ -1,0 +1,50 @@
+{
+  "sentAt": "2026-02-25T08:13:59.492Z",
+  "total": 7,
+  "sent": 0,
+  "failed": 7,
+  "results": [
+    {
+      "success": false,
+      "error": "invalid_grant",
+      "to": "sales-support@consiliuminc.com",
+      "subject": "Enhancing Patient Engagement at Consilium Software"
+    },
+    {
+      "success": false,
+      "error": "invalid_grant",
+      "to": "divya@sinewave.ai",
+      "subject": "Enhancing Sinewave AI's Automation Solutions"
+    },
+    {
+      "success": false,
+      "error": "invalid_grant",
+      "to": "info@voiceoc.com",
+      "subject": "Quick Chat About Enhancing Voiceoc's Solutions"
+    },
+    {
+      "success": false,
+      "error": "invalid_grant",
+      "to": "jane@acme.inc",
+      "subject": "Exploring Ways to Enhance Patient Engagement"
+    },
+    {
+      "success": false,
+      "error": "invalid_grant",
+      "to": "sales@doctorconnect.net",
+      "subject": "Exploring AI Solutions for ARIA's Growth"
+    },
+    {
+      "success": false,
+      "error": "invalid_grant",
+      "to": "sales@qliqsoft.com",
+      "subject": "Exploring AI Voice Solutions for QliqSOFT"
+    },
+    {
+      "success": false,
+      "error": "invalid_grant",
+      "to": "info@facere.ai",
+      "subject": "Quick note about enhancing Facere AI's solutions"
+    }
+  ]
+}

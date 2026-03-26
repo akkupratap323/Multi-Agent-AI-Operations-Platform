@@ -1,0 +1,31 @@
+{
+  "name": "nester-sales-agent",
+  "version": "1.0.0",
+  "description": "Intelligent cold email sales agent for Nester Voice AI",
+  "main": "scripts/run_campaign.js",
+  "scripts": {
+    "campaign": "node scripts/run_campaign.js",
+    "campaign:dry": "node scripts/run_campaign.js --dry-run",
+    "research": "node scripts/research_prospects.js",
+    "find-emails": "node scripts/email_finder.js",
+    "generate-emails": "node scripts/email_generator.js",
+    "send-emails": "DRY_RUN=true node scripts/email_sender.js",
+    "test": "node scripts/run_campaign.js --dry-run"
+  },
+  "keywords": [
+    "cold-email",
+    "sales-automation",
+    "lead-generation",
+    "email-outreach"
+  ],
+  "author": "Nester Labs",
+  "dependencies": {
+    "nodemailer": "^6.9.0",
+    "pg": "^8.11.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nesterlabs/sales-agent"
+  }
+}

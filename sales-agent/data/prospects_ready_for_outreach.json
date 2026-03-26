@@ -1,0 +1,780 @@
+[
+  {
+    "companyName": "DataVault Pro",
+    "domain": "datavault.com",
+    "industry": "SaaS",
+    "employeeCount": 131,
+    "location": "New York, NY",
+    "recentFunding": false,
+    "isGrowing": true,
+    "techStack": [
+      "Zendesk",
+      "Slack"
+    ],
+    "painPoints": [
+      "High support costs",
+      "Long response times"
+    ],
+    "decisionMaker": null,
+    "hiringForSupport": false,
+    "socialPresence": true,
+    "website": "https://datavault.com",
+    "notes": "Potential use case: Customer support automation, lead qualification",
+    "fitScore": 80,
+    "targetProfile": "SaaS",
+    "contact": {
+      "email": "hello@datavault.com",
+      "firstName": "Team",
+      "lastName": "",
+      "title": "Contact",
+      "confidence": 30,
+      "source": "Pattern",
+      "linkedIn": null
+    }
+  },
+  {
+    "companyName": "MetricsDash",
+    "domain": "metricsdash.com",
+    "industry": "SaaS",
+    "employeeCount": 86,
+    "location": "Boston, MA",
+    "recentFunding": false,
+    "isGrowing": true,
+    "techStack": [
+      "Zendesk",
+      "Intercom"
+    ],
+    "painPoints": [
+      "High support costs",
+      "Long response times",
+      "Manual lead qualification"
+    ],
+    "decisionMaker": null,
+    "hiringForSupport": true,
+    "socialPresence": false,
+    "website": "https://metricsdash.com",
+    "notes": "Potential use case: Customer support automation, lead qualification",
+    "fitScore": 80,
+    "targetProfile": "SaaS",
+    "contact": {
+      "email": "hello@metricsdash.com",
+      "firstName": "Team",
+      "lastName": "",
+      "title": "Contact",
+      "confidence": 30,
+      "source": "Pattern",
+      "linkedIn": null
+    }
+  },
+  {
+    "companyName": "TeamSync",
+    "domain": "teamsync.app",
+    "industry": "SaaS",
+    "employeeCount": 117,
+    "location": "Austin, TX",
+    "recentFunding": true,
+    "isGrowing": true,
+    "techStack": [
+      "Zendesk",
+      "Intercom",
+      "Slack",
+      "HubSpot"
+    ],
+    "painPoints": [],
+    "decisionMaker": null,
+    "hiringForSupport": true,
+    "socialPresence": true,
+    "website": "https://teamsync.app",
+    "notes": "Potential use case: Customer support automation, lead qualification",
+    "fitScore": 75,
+    "targetProfile": "SaaS",
+    "contact": {
+      "email": "hello@teamsync.app",
+      "firstName": "Team",
+      "lastName": "",
+      "title": "Contact",
+      "confidence": 30,
+      "source": "Pattern",
+      "linkedIn": null
+    }
+  },
+  {
+    "companyName": "CloudFlow Solutions",
+    "domain": "cloudflow.io",
+    "industry": "SaaS",
+    "employeeCount": 10,
+    "location": "San Francisco, CA",
+    "recentFunding": false,
+    "isGrowing": false,
+    "techStack": [
+      "HubSpot"
+    ],
+    "painPoints": [
+      "Manual lead qualification"
+    ],
+    "decisionMaker": null,
+    "hiringForSupport": false,
+    "socialPresence": true,
+    "website": "https://cloudflow.io",
+    "notes": "Potential use case: Customer support automation, lead qualification",
+    "fitScore": 65,
+    "targetProfile": "SaaS",
+    "contact": {
+      "email": "hello@cloudflow.io",
+      "firstName": "Team",
+      "lastName": "",
+      "title": "Contact",
+      "confidence": 30,
+      "source": "Pattern",
+      "linkedIn": null
+    }
+  },
+  {
+    "companyName": "ProjectHub",
+    "domain": "projecthub.io",
+    "industry": "SaaS",
+    "employeeCount": 30,
+    "location": "Seattle, WA",
+    "recentFunding": false,
+    "isGrowing": false,
+    "techStack": [
+      "Intercom",
+      "HubSpot"
+    ],
+    "painPoints": [
+      "Long response times",
+      "Manual lead qualification"
+    ],
+    "decisionMaker": null,
+    "hiringForSupport": false,
+    "socialPresence": true,
+    "website": "https://projecthub.io",
+    "notes": "Potential use case: Customer support automation, lead qualification",
+    "fitScore": 65,
+    "targetProfile": "SaaS",
+    "contact": {
+      "email": "hello@projecthub.io",
+      "firstName": "Team",
+      "lastName": "",
+      "title": "Contact",
+      "confidence": 30,
+      "source": "Pattern",
+      "linkedIn": null
+    }
+  },
+  {
+    "companyName": "TechGear Direct",
+    "domain": "techgear.com",
+    "industry": "E-commerce",
+    "employeeCount": 98,
+    "location": "New York, NY",
+    "recentFunding": true,
+    "isGrowing": true,
+    "techStack": [
+      "Zendesk",
+      "Intercom",
+      "Slack"
+    ],
+    "painPoints": [
+      "High call volume",
+      "Repetitive questions"
+    ],
+    "decisionMaker": null,
+    "hiringForSupport": true,
+    "socialPresence": true,
+    "website": "https://techgear.com",
+    "notes": "Potential use case: Order tracking, customer inquiries, return handling",
+    "fitScore": 90,
+    "targetProfile": "E-commerce",
+    "contact": {
+      "email": "hello@techgear.com",
+      "firstName": "Team",
+      "lastName": "",
+      "title": "Contact",
+      "confidence": 30,
+      "source": "Pattern",
+      "linkedIn": null
+    }
+  },
+  {
+    "companyName": "PetPals Supply",
+    "domain": "petpals.com",
+    "industry": "E-commerce",
+    "employeeCount": 146,
+    "location": "Seattle, WA",
+    "recentFunding": false,
+    "isGrowing": true,
+    "techStack": [
+      "Intercom",
+      "Slack",
+      "HubSpot"
+    ],
+    "painPoints": [
+      "High call volume"
+    ],
+    "decisionMaker": null,
+    "hiringForSupport": true,
+    "socialPresence": true,
+    "website": "https://petpals.com",
+    "notes": "Potential use case: Order tracking, customer inquiries, return handling",
+    "fitScore": 90,
+    "targetProfile": "E-commerce",
+    "contact": {
+      "email": "hello@petpals.com",
+      "firstName": "Team",
+      "lastName": "",
+      "title": "Contact",
+      "confidence": 30,
+      "source": "Pattern",
+      "linkedIn": null
+    }
+  },
+  {
+    "companyName": "HomeDecor Plus",
+    "domain": "homedecorplus.com",
+    "industry": "E-commerce",
+    "employeeCount": 39,
+    "location": "Boston, MA",
+    "recentFunding": true,
+    "isGrowing": false,
+    "techStack": [
+      "Slack",
+      "HubSpot"
+    ],
+    "painPoints": [
+      "High call volume",
+      "Repetitive questions"
+    ],
+    "decisionMaker": null,
+    "hiringForSupport": false,
+    "socialPresence": false,
+    "website": "https://homedecorplus.com",
+    "notes": "Potential use case: Order tracking, customer inquiries, return handling",
+    "fitScore": 70,
+    "targetProfile": "E-commerce",
+    "contact": {
+      "email": "hello@homedecorplus.com",
+      "firstName": "Team",
+      "lastName": "",
+      "title": "Contact",
+      "confidence": 30,
+      "source": "Pattern",
+      "linkedIn": null
+    }
+  },
+  {
+    "companyName": "UrbanStyle Boutique",
+    "domain": "urbanstyle.shop",
+    "industry": "E-commerce",
+    "employeeCount": 198,
+    "location": "San Francisco, CA",
+    "recentFunding": false,
+    "isGrowing": false,
+    "techStack": [
+      "Intercom",
+      "Slack"
+    ],
+    "painPoints": [
+      "High call volume",
+      "Repetitive questions"
+    ],
+    "decisionMaker": null,
+    "hiringForSupport": false,
+    "socialPresence": true,
+    "website": "https://urbanstyle.shop",
+    "notes": "Potential use case: Order tracking, customer inquiries, return handling",
+    "fitScore": 65,
+    "targetProfile": "E-commerce",
+    "contact": {
+      "email": "hello@urbanstyle.shop",
+      "firstName": "Team",
+      "lastName": "",
+      "title": "Contact",
+      "confidence": 30,
+      "source": "Pattern",
+      "linkedIn": null
+    }
+  },
+  {
+    "companyName": "VitalCare Medical",
+    "domain": "vitalcare.com",
+    "industry": "Healthcare",
+    "employeeCount": 158,
+    "location": "Boston, MA",
+    "recentFunding": false,
+    "isGrowing": true,
+    "techStack": [
+      "Zendesk",
+      "Intercom"
+    ],
+    "painPoints": [
+      "Phone tag with patients"
+    ],
+    "decisionMaker": null,
+    "hiringForSupport": true,
+    "socialPresence": true,
+    "website": "https://vitalcare.com",
+    "notes": "Potential use case: Appointment scheduling, patient reminders, basic inquiries",
+    "fitScore": 90,
+    "targetProfile": "Healthcare",
+    "contact": {
+      "email": "hello@vitalcare.com",
+      "firstName": "Team",
+      "lastName": "",
+      "title": "Contact",
+      "confidence": 30,
+      "source": "Pattern",
+      "linkedIn": null
+    }
+  },
+  {
+    "companyName": "WellCare Clinic",
+    "domain": "wellcareclinic.com",
+    "industry": "Healthcare",
+    "employeeCount": 11,
+    "location": "San Francisco, CA",
+    "recentFunding": true,
+    "isGrowing": false,
+    "techStack": [
+      "Intercom"
+    ],
+    "painPoints": [
+      "Missed appointments"
+    ],
+    "decisionMaker": null,
+    "hiringForSupport": false,
+    "socialPresence": true,
+    "website": "https://wellcareclinic.com",
+    "notes": "Potential use case: Appointment scheduling, patient reminders, basic inquiries",
+    "fitScore": 80,
+    "targetProfile": "Healthcare",
+    "contact": {
+      "email": "hello@wellcareclinic.com",
+      "firstName": "Team",
+      "lastName": "",
+      "title": "Contact",
+      "confidence": 30,
+      "source": "Pattern",
+      "linkedIn": null
+    }
+  },
+  {
+    "companyName": "HealthFirst Practice",
+    "domain": "healthfirst.care",
+    "industry": "Healthcare",
+    "employeeCount": 186,
+    "location": "Austin, TX",
+    "recentFunding": true,
+    "isGrowing": false,
+    "techStack": [
+      "Intercom",
+      "HubSpot"
+    ],
+    "painPoints": [
+      "Missed appointments",
+      "Admin overhead"
+    ],
+    "decisionMaker": null,
+    "hiringForSupport": true,
+    "socialPresence": false,
+    "website": "https://healthfirst.care",
+    "notes": "Potential use case: Appointment scheduling, patient reminders, basic inquiries",
+    "fitScore": 80,
+    "targetProfile": "Healthcare",
+    "contact": {
+      "email": "hello@healthfirst.care",
+      "firstName": "Team",
+      "lastName": "",
+      "title": "Contact",
+      "confidence": 30,
+      "source": "Pattern",
+      "linkedIn": null
+    }
+  },
+  {
+    "companyName": "Dental Excellence",
+    "domain": "dentalexcellence.com",
+    "industry": "Healthcare",
+    "employeeCount": 75,
+    "location": "New York, NY",
+    "recentFunding": true,
+    "isGrowing": true,
+    "techStack": [
+      "Zendesk"
+    ],
+    "painPoints": [],
+    "decisionMaker": null,
+    "hiringForSupport": false,
+    "socialPresence": true,
+    "website": "https://dentalexcellence.com",
+    "notes": "Potential use case: Appointment scheduling, patient reminders, basic inquiries",
+    "fitScore": 65,
+    "targetProfile": "Healthcare",
+    "contact": {
+      "email": "hello@dentalexcellence.com",
+      "firstName": "Team",
+      "lastName": "",
+      "title": "Contact",
+      "confidence": 30,
+      "source": "Pattern",
+      "linkedIn": null
+    }
+  },
+  {
+    "companyName": "MindWell Therapy",
+    "domain": "mindwell.health",
+    "industry": "Healthcare",
+    "employeeCount": 168,
+    "location": "Seattle, WA",
+    "recentFunding": true,
+    "isGrowing": false,
+    "techStack": [],
+    "painPoints": [
+      "Missed appointments",
+      "Phone tag with patients",
+      "Admin overhead"
+    ],
+    "decisionMaker": null,
+    "hiringForSupport": false,
+    "socialPresence": true,
+    "website": "https://mindwell.health",
+    "notes": "Potential use case: Appointment scheduling, patient reminders, basic inquiries",
+    "fitScore": 60,
+    "targetProfile": "Healthcare",
+    "contact": {
+      "email": "hello@mindwell.health",
+      "firstName": "Team",
+      "lastName": "",
+      "title": "Contact",
+      "confidence": 30,
+      "source": "Pattern",
+      "linkedIn": null
+    }
+  },
+  {
+    "companyName": "Horizon Property Management",
+    "domain": "horizonpm.com",
+    "industry": "Real Estate",
+    "employeeCount": 93,
+    "location": "Boston, MA",
+    "recentFunding": true,
+    "isGrowing": true,
+    "techStack": [
+      "Intercom"
+    ],
+    "painPoints": [
+      "Qualifying prospects",
+      "Scheduling conflicts"
+    ],
+    "decisionMaker": null,
+    "hiringForSupport": false,
+    "socialPresence": true,
+    "website": "https://horizonpm.com",
+    "notes": "Potential use case: Lead qualification, property inquiries, scheduling viewings",
+    "fitScore": 80,
+    "targetProfile": "Real Estate",
+    "contact": {
+      "email": "hello@horizonpm.com",
+      "firstName": "Team",
+      "lastName": "",
+      "title": "Contact",
+      "confidence": 30,
+      "source": "Pattern",
+      "linkedIn": null
+    }
+  },
+  {
+    "companyName": "Prime Properties Group",
+    "domain": "primeproperties.com",
+    "industry": "Real Estate",
+    "employeeCount": 94,
+    "location": "San Francisco, CA",
+    "recentFunding": false,
+    "isGrowing": false,
+    "techStack": [
+      "Zendesk",
+      "HubSpot"
+    ],
+    "painPoints": [
+      "Lead response time",
+      "Qualifying prospects",
+      "Scheduling conflicts"
+    ],
+    "decisionMaker": null,
+    "hiringForSupport": true,
+    "socialPresence": true,
+    "website": "https://primeproperties.com",
+    "notes": "Potential use case: Lead qualification, property inquiries, scheduling viewings",
+    "fitScore": 75,
+    "targetProfile": "Real Estate",
+    "contact": {
+      "email": "hello@primeproperties.com",
+      "firstName": "Team",
+      "lastName": "",
+      "title": "Contact",
+      "confidence": 30,
+      "source": "Pattern",
+      "linkedIn": null
+    }
+  },
+  {
+    "companyName": "Urban Realty Partners",
+    "domain": "urbanrealty.com",
+    "industry": "Real Estate",
+    "employeeCount": 124,
+    "location": "New York, NY",
+    "recentFunding": true,
+    "isGrowing": true,
+    "techStack": [
+      "HubSpot"
+    ],
+    "painPoints": [
+      "Qualifying prospects"
+    ],
+    "decisionMaker": null,
+    "hiringForSupport": false,
+    "socialPresence": false,
+    "website": "https://urbanrealty.com",
+    "notes": "Potential use case: Lead qualification, property inquiries, scheduling viewings",
+    "fitScore": 70,
+    "targetProfile": "Real Estate",
+    "contact": {
+      "email": "hello@urbanrealty.com",
+      "firstName": "Team",
+      "lastName": "",
+      "title": "Contact",
+      "confidence": 30,
+      "source": "Pattern",
+      "linkedIn": null
+    }
+  },
+  {
+    "companyName": "Coastal Living Realtors",
+    "domain": "coastalliving.realty",
+    "industry": "Real Estate",
+    "employeeCount": 24,
+    "location": "Austin, TX",
+    "recentFunding": true,
+    "isGrowing": true,
+    "techStack": [
+      "Intercom",
+      "HubSpot"
+    ],
+    "painPoints": [
+      "Lead response time",
+      "Scheduling conflicts"
+    ],
+    "decisionMaker": null,
+    "hiringForSupport": false,
+    "socialPresence": false,
+    "website": "https://coastalliving.realty",
+    "notes": "Potential use case: Lead qualification, property inquiries, scheduling viewings",
+    "fitScore": 70,
+    "targetProfile": "Real Estate",
+    "contact": {
+      "email": "hello@coastalliving.realty",
+      "firstName": "Team",
+      "lastName": "",
+      "title": "Contact",
+      "confidence": 30,
+      "source": "Pattern",
+      "linkedIn": null
+    }
+  },
+  {
+    "companyName": "Summit Real Estate",
+    "domain": "summitrealestate.com",
+    "industry": "Real Estate",
+    "employeeCount": 144,
+    "location": "Seattle, WA",
+    "recentFunding": true,
+    "isGrowing": false,
+    "techStack": [
+      "Zendesk",
+      "Slack"
+    ],
+    "painPoints": [],
+    "decisionMaker": null,
+    "hiringForSupport": false,
+    "socialPresence": true,
+    "website": "https://summitrealestate.com",
+    "notes": "Potential use case: Lead qualification, property inquiries, scheduling viewings",
+    "fitScore": 65,
+    "targetProfile": "Real Estate",
+    "contact": {
+      "email": "hello@summitrealestate.com",
+      "firstName": "Team",
+      "lastName": "",
+      "title": "Contact",
+      "confidence": 30,
+      "source": "Pattern",
+      "linkedIn": null
+    }
+  },
+  {
+    "companyName": "FinanceFirst Group",
+    "domain": "financefirst.com",
+    "industry": "Financial Services",
+    "employeeCount": 69,
+    "location": "Seattle, WA",
+    "recentFunding": true,
+    "isGrowing": false,
+    "techStack": [
+      "Zendesk",
+      "Intercom",
+      "HubSpot"
+    ],
+    "painPoints": [
+      "Compliance requirements",
+      "High call volumes",
+      "Client expectations"
+    ],
+    "decisionMaker": null,
+    "hiringForSupport": true,
+    "socialPresence": false,
+    "website": "https://financefirst.com",
+    "notes": "Potential use case: Account inquiries, appointment booking, FAQ handling",
+    "fitScore": 80,
+    "targetProfile": "Financial Services",
+    "contact": {
+      "email": "hello@financefirst.com",
+      "firstName": "Team",
+      "lastName": "",
+      "title": "Contact",
+      "confidence": 30,
+      "source": "Pattern",
+      "linkedIn": null
+    }
+  },
+  {
+    "companyName": "InvestWise Partners",
+    "domain": "investwise.com",
+    "industry": "Financial Services",
+    "employeeCount": 132,
+    "location": "Boston, MA",
+    "recentFunding": true,
+    "isGrowing": false,
+    "techStack": [
+      "Zendesk",
+      "Intercom",
+      "Slack"
+    ],
+    "painPoints": [
+      "High call volumes",
+      "Client expectations"
+    ],
+    "decisionMaker": null,
+    "hiringForSupport": false,
+    "socialPresence": true,
+    "website": "https://investwise.com",
+    "notes": "Potential use case: Account inquiries, appointment booking, FAQ handling",
+    "fitScore": 80,
+    "targetProfile": "Financial Services",
+    "contact": {
+      "email": "hello@investwise.com",
+      "firstName": "Team",
+      "lastName": "",
+      "title": "Contact",
+      "confidence": 30,
+      "source": "Pattern",
+      "linkedIn": null
+    }
+  },
+  {
+    "companyName": "SecureInsure Solutions",
+    "domain": "secureinsure.com",
+    "industry": "Financial Services",
+    "employeeCount": 99,
+    "location": "New York, NY",
+    "recentFunding": true,
+    "isGrowing": false,
+    "techStack": [
+      "Zendesk"
+    ],
+    "painPoints": [
+      "Compliance requirements"
+    ],
+    "decisionMaker": null,
+    "hiringForSupport": false,
+    "socialPresence": false,
+    "website": "https://secureinsure.com",
+    "notes": "Potential use case: Account inquiries, appointment booking, FAQ handling",
+    "fitScore": 70,
+    "targetProfile": "Financial Services",
+    "contact": {
+      "email": "hello@secureinsure.com",
+      "firstName": "Team",
+      "lastName": "",
+      "title": "Contact",
+      "confidence": 30,
+      "source": "Pattern",
+      "linkedIn": null
+    }
+  },
+  {
+    "companyName": "TaxPro Accounting",
+    "domain": "taxpro.com",
+    "industry": "Financial Services",
+    "employeeCount": 107,
+    "location": "Austin, TX",
+    "recentFunding": true,
+    "isGrowing": true,
+    "techStack": [
+      "Intercom",
+      "Slack",
+      "HubSpot"
+    ],
+    "painPoints": [
+      "Compliance requirements",
+      "Client expectations"
+    ],
+    "decisionMaker": null,
+    "hiringForSupport": false,
+    "socialPresence": false,
+    "website": "https://taxpro.com",
+    "notes": "Potential use case: Account inquiries, appointment booking, FAQ handling",
+    "fitScore": 70,
+    "targetProfile": "Financial Services",
+    "contact": {
+      "email": "hello@taxpro.com",
+      "firstName": "Team",
+      "lastName": "",
+      "title": "Contact",
+      "confidence": 30,
+      "source": "Pattern",
+      "linkedIn": null
+    }
+  },
+  {
+    "companyName": "WealthPath Advisors",
+    "domain": "wealthpath.com",
+    "industry": "Financial Services",
+    "employeeCount": 44,
+    "location": "San Francisco, CA",
+    "recentFunding": false,
+    "isGrowing": false,
+    "techStack": [
+      "Slack",
+      "HubSpot"
+    ],
+    "painPoints": [
+      "Compliance requirements"
+    ],
+    "decisionMaker": null,
+    "hiringForSupport": false,
+    "socialPresence": false,
+    "website": "https://wealthpath.com",
+    "notes": "Potential use case: Account inquiries, appointment booking, FAQ handling",
+    "fitScore": 55,
+    "targetProfile": "Financial Services",
+    "contact": {
+      "email": "hello@wealthpath.com",
+      "firstName": "Team",
+      "lastName": "",
+      "title": "Contact",
+      "confidence": 30,
+      "source": "Pattern",
+      "linkedIn": null
+    }
+  }
+]
