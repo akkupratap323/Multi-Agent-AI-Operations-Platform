@@ -1,0 +1,50 @@
+*Daily Standup — Tuesday, March 17th*
+
+Yo team, Rex here. Here's your morning status check.
+
+---
+
+*Aditya (Terrorizer-AI)* — Still got a couple of PRs chilling, waiting for review.
+• In Progress: `feat: log user/bot transcripts to CloudWatch Logs per session` (#49) — This one's from last Thursday, logging all the chat history to CloudWatch for analysis. Super important for debugging and understanding user interactions, so let's get some eyes on it soon.
+• In Progress: `Upgrade pipecat 0.0.100` (#36) — This Pipecat upgrade has been hanging around since way back in Feb. It's kinda stale, so let's either push it forward or close it out.
+
+*Shrey Malik* — No specific updates from the repos today.
+
+*Asha Theres* — Nothing new from the repos today.
+
+*Abhijith M (abhijith-nest)* — No specific updates from the repos today.
+
+*Susaant K* — No specific updates from the repos today.
+
+*Sneha R.K.* — Nothing new from the repos today.
+
+*Ankur Richhariya* — No specific updates from the repos today.
+
+*Lohita Suvvari* — Nothing new from the repos today.
+
+*Kunal Shrivastava (kunal-nest)* — My man Kunal shipped a fix!
+• Shipped: `fixup! Fixed connection and disconnection issue` (#52) — merged yesterday at 12:59 PM IST. Nice one, bro, keeping those connections smooth!
+
+*Gaurav Gupta* — No specific updates from the repos today.
+
+*Ayush Raj (ayushnesterlabs)* — Still have a PR in the works.
+• In Progress: `implemented semantic search and templates` (#16) — This one's been open since early February, implementing semantic search. It's getting a bit old, so let's get it moving or get some feedback.
+
+*John Horo (JohnNesterLabs)* — No specific updates from the repos today.
+
+---
+
+*Build & Deploy Status*
+All pipelines green. We're shipping clean today. No red flags, which is always a good sign.
+
+*Open Items*
+• 3 open PRs across the team (2 waiting review for 2+ days — lowkey stale)
+• No high-priority (P0/P1) issues open. Nice!
+
+*Today's Priorities*
+1.  **Team:** Let's get some reviews done on Aditya's CloudWatch logging PR (#49). This is crucial for insights, so let's not let it gather dust.
+2.  **Aditya & Ayush:** Check in on those older, stale PRs (#36, #16). Time to either push them to completion or decide if they need to be re-evaluated.
+3.  **Team:** Keep an eye out for any new issues or CI failures, especially with the main product repo.
+
+*Blockers*
+No blockers today. Clean sprint energy.

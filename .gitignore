@@ -39,3 +39,18 @@ logs/
 
 # Cron run logs (may contain sensitive runtime data)
 cron/
+
+# Agent symlink (points to separate local Jarvis project — not part of this repo)
+agents
+
+# Agent session logs (runtime data, may contain tokens/secrets)
+**/sessions/
+**/sessions/*.jsonl
+
+# Python cache
+**/__pycache__/
+**/*.pyc
+
+# Workspace identity/runtime files
+workspace/identity/
+workspace/devices/
