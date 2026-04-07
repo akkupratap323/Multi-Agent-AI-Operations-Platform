@@ -13,6 +13,10 @@
 [![Slack](https://img.shields.io/badge/Slack-API-4A154B?style=flat-square&logo=slack&logoColor=white)](https://api.slack.com)
 [![License](https://img.shields.io/badge/License-MIT-22c55e?style=flat-square)](LICENSE)
 
+<br/>
+
+**[▶ Watch the full platform demo on LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7429348815134081024/)**
+
 </div>
 
 ---
