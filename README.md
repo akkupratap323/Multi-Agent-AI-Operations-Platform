@@ -1,8 +1,8 @@
 <div align="center">
 
-# OpenClaw
+# Multi-Agent AI Operations Platform
 
-### Multi-Agent AI Operations Platform
+### Built on [OpenClaw](https://github.com/openclaw) · Powered by Claude + AWS
 
 *5 specialized AI agents running 24/7 — handling incidents, monitoring code, managing email, posting to social, and keeping the team in sync. Automatically.*
 
@@ -17,9 +17,9 @@
 
 ---
 
-## What is OpenClaw?
+## What is this?
 
-OpenClaw is a production AI agent platform built for [Nester Labs](https://nesterlabs.com) — a voice AI startup. Instead of one general-purpose AI assistant, it runs **five domain-expert agents in parallel**, each owning a slice of company operations:
+This is a **multi-agent AI operations system** built on top of [OpenClaw](https://github.com/openclaw) — an open-source agent orchestration platform. Instead of one general-purpose AI assistant, it runs **five domain-expert agents in parallel**, each owning a specific slice of operations:
 
 | Agent | Owns | Trigger |
 |-------|------|---------|
@@ -29,24 +29,26 @@ OpenClaw is a production AI agent platform built for [Nester Labs](https://neste
 | 🧠 **Squad Brain** | Team standups, planning, casual comms | Slack messages |
 | 📡 **AI News** | Twitter/X monitoring, auto-repost | IFTTT webhooks |
 
-Every agent lives in its own workspace, has its own identity and tools, and can message the others through a shared **Agent Bridge**. Slack is the control plane — the agents post there, and humans respond there.
+Each agent lives in its own OpenClaw workspace with its own identity, tools, and memory. They communicate through a shared **Agent Bridge**. Slack is the control plane — agents post there, humans respond there.
+
+> **OpenClaw** is the open-source runtime that makes this possible — handling agent identity, workspace isolation, tool execution, and inter-agent messaging. This repo contains the agents and automation logic built on top of it.
 
 ---
 
 ## Live Demo — Incident Commander
 
-This is a real incident that ran through the full pipeline on March 6, 2026:
+A real incident that ran through the full pipeline end-to-end:
 
 ```
-14:52  MONITOR       CPU spike detected — nester-ai-emotion: 91.3% (threshold: 85%)
-                     Severity: P2 | Service: lightsail/nester-ai-emotion
+14:52  MONITOR       CPU spike detected — my-api-server: 91.3% (threshold: 85%)
+                     Severity: P2 | Service: lightsail/my-api-server
 
 14:52  DIAGNOSE      GPT-4o analysing metrics + recent commits...
                      Root cause: Memory leak in STT/TTS job queue — tasks accumulating
                      without cleanup between sessions. Confidence: 0.87
 
 14:52  RESPOND       War room created: #incident-2026-03-06-001
-                     Paging @Aditya (on-call) via Slack + WhatsApp
+                     Paging on-call engineer via Slack + WhatsApp
                      Stakeholder email sent
 
                      Suggested fixes:
@@ -54,8 +56,8 @@ This is a real incident that ran through the full pipeline on March 6, 2026:
                        [2] Scale to larger bundle     — medium risk, no downtime
                        [3] Reboot + clear job cache   — low risk, ~3 min
 
-14:54  RESOLVE       @Aditya: "approve 1"
-                     Executing: aws lightsail reboot-instance --instance-name nester-ai-emotion
+14:54  RESOLVE       On-call: "approve 1"
+                     Executing: aws lightsail reboot-instance --instance-name my-api-server
                      Health check... CPU: 12% ✓  StatusCheck: passed ✓
 
 14:55  POSTMORTEM    INC-2026-03-06-001.md saved
@@ -551,9 +553,9 @@ See [SECURITY.md](SECURITY.md) for the full credential inventory and rotation ch
 
 <div align="center">
 
-Built by **Aditya** at [Nester Labs](https://nesterlabs.com)
+Built by **Aditya Pratap** — [GitHub](https://github.com/akkupratap323)
 
-Powered by [Claude Code](https://claude.ai/code) · [OpenAI](https://openai.com) · [Gemini](https://deepmind.google/gemini) · [Neon](https://neon.tech) · [AWS](https://aws.amazon.com)
+Built on [OpenClaw](https://github.com/openclaw) · Powered by [Claude Code](https://claude.ai/code) · [OpenAI](https://openai.com) · [Gemini](https://deepmind.google/gemini) · [Neon](https://neon.tech) · [AWS](https://aws.amazon.com)
 
 *Inspired by PagerDuty, Rootly, incident.io, Datadog — built without the invoice.*
 

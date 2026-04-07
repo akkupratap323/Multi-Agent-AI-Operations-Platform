@@ -12,7 +12,7 @@
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Neon-4169E1?style=flat-square&logo=postgresql&logoColor=white)](https://neon.tech)
 [![OpenAI](https://img.shields.io/badge/OpenAI-GPT--4o-412991?style=flat-square&logo=openai&logoColor=white)](https://openai.com)
 
-Part of [OpenClaw](../README.md) — a multi-agent AI operations platform.
+One of 5 agents in the [Multi-Agent AI Operations Platform](../README.md), built on [OpenClaw](https://github.com/openclaw).
 
 </div>
 
@@ -21,7 +21,7 @@ Part of [OpenClaw](../README.md) — a multi-agent AI operations platform.
 ## Live Incident — March 6, 2026
 
 ```
-14:52:03  [MONITOR]    CPUUtilization: 91.3% on nester-ai-emotion (threshold: 85%)
+14:52:03  [MONITOR]    CPUUtilization: 91.3% on my-api-server (threshold: 85%)
                        Severity: P2 | No active maintenance window | Not in cooldown
 
 14:52:05  [PIPELINE]   Checking deduplication... new incident
@@ -35,7 +35,7 @@ Part of [OpenClaw](../README.md) — a multi-agent AI operations platform.
                        without session cleanup. Confidence: 0.87
 
 14:52:11  [RESPOND]    Creating war room: #incident-2026-03-06-001
-                       On-call: @Aditya (weekly schedule, day 3)
+                       On-call: @engineer (weekly schedule, day 3)
                        Posting page to Slack... ✓
                        Sending WhatsApp alert... ✓
                        Sending stakeholder email... ✓
