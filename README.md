@@ -2,7 +2,7 @@
 
 # Multi-Agent AI Operations Platform
 
-### Built on [OpenClaw](https://github.com/openclaw) · Powered by Claude + AWS
+### Built on [OpenClaw](https://github.com/openclaw)
 
 *5 specialized AI agents running 24/7 — handling incidents, monitoring code, managing email, posting to social, and keeping the team in sync. Automatically.*
 
@@ -195,20 +195,19 @@ Manages the founder's inbox, calendar, and daily context so they don't have to c
 ### 🧠 Squad Brain — Rex
 > *A team member that shows up in Slack, not a bot that answers prompts.*
 
-Rex is the informal team communication agent — built to sound like a 22-year-old Indian tech bro who genuinely cares about the team. Runs standups, helps with planning, responds to rants with actual empathy, and relays reports from other agents.
+Rex is the informal team communication agent — runs standups, helps with planning, responds to messages with actual context, and relays reports from other agents in real time.
 
 **What makes Rex different:**
-- Talks like Discord, not a press release ("bro", "lowkey", "yarr" — used sparingly)
-- Has an actual backstory: ex-lab agent, friends with Terrorizer AI (the chaotic one)
 - Receives live GitHub events via webhook relay — knows when a build breaks before anyone else does
 - Acts as a communication hub: Dev Monitor → Rex → team, Incident Commander → Rex → engineers
+- Understands team context from memory logs — not just the current message
 
 ---
 
 ### 📡 AI News Agent
-> *NesterLabs' Twitter presence, automated.*
+> *Your Twitter presence, automated.*
 
-Watches Twitter/X for AI and tech news, classifies every tweet, and auto-reposts the good ones to NesterLabs' account without anyone having to curate manually.
+Watches Twitter/X for AI and tech news, classifies every tweet, and auto-reposts the relevant ones without anyone having to curate manually.
 
 **Content it auto-posts:**
 - AI model releases and research papers (OpenAI, Anthropic, Google, Meta)
@@ -225,17 +224,17 @@ Watches Twitter/X for AI and tech news, classifies every tweet, and auto-reposts
 Agents communicate through `shared/agent-bridge.js` — a lightweight inter-agent messaging layer that routes messages to any agent via the OpenClaw daemon.
 
 ```js
-// Incident Commander pages Rex during a P1
+// Incident Commander pages Squad Brain during a P1
 sendToAgent('squad-brain',
-  'P1 on nester-ai-emotion — CPU 97%. War room: #incident-2026-03-06-001. Need all hands.'
+  'P1 on my-api-server — CPU 97%. War room: #incident-2026-03-06-001. Need all hands.'
 );
 
-// Dev Monitor sends a failed build to Rex
+// Dev Monitor sends a failed build to Squad Brain
 sendToAgent('squad-brain',
-  'Build failed: opentelemetry-js CI on main. Pusher: @terrorizer. Link: [run url]'
+  'Build failed: main branch CI. Link: [run url]'
 );
 
-// Rex broadcasts a standup summary to the team
+// Squad Brain broadcasts a standup summary to the team
 broadcast('Good morning team — 3 open PRs, 1 stale (review needed), no failed builds. Shipping day.');
 ```
 
@@ -246,37 +245,6 @@ ai-news            → twitter, news-monitoring, content-curation
 assistant          → email, calendar, briefings, automation
 dev-monitor        → github, ci-cd, pr-tracking, build-alerts, dev-reports
 incident-commander → aws-monitoring, incident-management, auto-remediation, postmortem
-```
-
----
-
-## A Day in the Life
-
-```
-08:00  📋 Assistant delivers morning briefing
-          "3 meetings today, 2 PRs need your review, CPU on nester-ai-emotion is stable."
-
-09:00  🔧 Dev Monitor posts standup to #dev
-          "5 open PRs | 1 stale (>7d, needs attention) | 2 merged yesterday | CI: all green ✅"
-
-09:15  🧠 Rex in standup channel
-          "Morning — what's the priority today? I see the auth PR has been sitting since Tuesday..."
-
-10:30  📡 AI News picks up Gemini 2.5 Flash launch tweet
-          → Classifies as AUTO-POST → reposts to @NesterLabs Twitter
-          → Sends digest to #ai-news: "Posted: Google launches Gemini 2.5 Flash..."
-
-14:52  🚨 Incident Commander: CPU alert fires
-          → Diagnoses in 45s → War room created → @Aditya paged
-          → Fix approved → applied → health check passed
-          → "approve 1" → MTTR: 3 minutes
-
-16:00  🔧 Dev Monitor: build failure alert
-          → "🔴 CI failed on feature/stt-refactor — opentelemetry-js"
-          → Rex relays: "yo, @terrorizer your branch is red 👀"
-
-18:00  📋 Assistant evening wrap-up
-          "Shipped: 2 PRs merged. Tomorrow: design review at 10, infra sync at 2."
 ```
 
 ---
@@ -319,8 +287,6 @@ incident-commander → aws-monitoring, incident-management, auto-remediation, po
 │   ├── ecosystem.config.js          ← PM2: 3 processes
 │   ├── start.sh / stop.sh           ← One-command startup
 │   ├── .env.example                 ← Template (fill in and copy to .env)
-│   ├── incidents/                   ← Auto-generated postmortem .md files
-│   ├── logs/                        ← PM2 log output
 │   └── scripts/
 │       ├── monitor.js               ← Stage 1: poll AWS every 60s
 │       ├── diagnose.js              ← Stage 2: AI root cause analysis
@@ -330,8 +296,7 @@ incident-commander → aws-monitoring, incident-management, auto-remediation, po
 │       ├── incident_pipeline.js     ← Orchestrator (chains all stages)
 │       ├── slack_bot.js             ← Command handler for #incidents
 │       ├── scheduler.js             ← Cron jobs
-│       ├── setup_db.js              ← DB schema v1
-│       ├── setup_db_v2.js           ← DB schema v2 (13 new tables)
+│       ├── setup_db.js / setup_db_v2.js  ← DB schema (15 tables)
 │       ├── seed_data.js             ← Initial data (runbooks, SLOs, on-call)
 │       └── utils/
 │           ├── cloudwatch.js        ← AWS CLI wrappers
@@ -357,19 +322,17 @@ incident-commander → aws-monitoring, incident-management, auto-remediation, po
 │       ├── daily_dev_report.js      ← Morning standup report
 │       ├── alert_failed_builds.js   ← Real-time CI/CD failure alerts
 │       ├── monitor_neon_db.js       ← Neon DB health via management API
-│       ├── monitor_new_users.js     ← New user signup tracking
-│       └── github_profile_briefing.js
+│       └── monitor_new_users.js     ← New user signup tracking
 │
 ├── workspace-assistant/             ← 📋 Email, calendar, briefings
 │   ├── .env.example
 │   └── scripts/
 │       ├── morning_briefing.js      ← Comprehensive daily briefing
-│       ├── morning_briefing_complete.js  ← Full briefing with DB stats
 │       ├── check_inbox.js           ← Gmail monitoring
 │       ├── check_calendar.js        ← Google Calendar integration
 │       └── voice_daemon.py          ← macOS TTS voice output
 │
-├── workspace-squad-brain/           ← 🧠 Rex — team squad buddy
+├── workspace-squad-brain/           ← 🧠 Rex — team communication agent
 │   ├── .env.example
 │   └── scripts/
 │       ├── morning_briefing.js      ← Rex's standup briefing
@@ -418,22 +381,20 @@ Slack app         api.slack.com/apps → create bot with chat:write, channels:re
 ### Quick Start
 
 ```bash
-# 1. Clone / navigate to project
-cd .openclaw
+# 1. Clone the repo
+git clone https://github.com/akkupratap323/Multi-Agent-AI-Operations-Platform
+cd Multi-Agent-AI-Operations-Platform
 
 # 2. Install shared dependencies
 npm install
 
-# 3. Set up Google auth (for Gmail + Calendar)
-node authorize-google.js
-
-# 4. Start Incident Commander (most featured agent)
+# 3. Start Incident Commander
 cd workspace-incident-commander
 cp .env.example .env
-# fill in SLACK_BOT_TOKEN, NEON_DB_URL, GEMINI_API_KEY in .env
+# fill in SLACK_BOT_TOKEN, NEON_DB_URL, OPENAI_API_KEY in .env
 ./start.sh --setup        # creates DB tables, seeds data, starts PM2
 
-# 5. Verify it's running
+# 4. Verify it's running
 pm2 status
 pm2 logs ic-monitor
 ```
@@ -452,27 +413,25 @@ cd workspace-assistant
 cp .env.example .env      # fill in SLACK_BOT_TOKEN, NEON_API_KEY
 node scripts/morning_briefing.js
 
-# Squad Brain — runs inside OpenClaw daemon (no manual start needed)
-# AI News — triggered by IFTTT webhook (no manual start needed)
+# Squad Brain + AI News — run inside OpenClaw daemon (no manual start needed)
 ```
 
 ### Environment Variables
 
-Each workspace has its own `.env.example`. Key variables across all agents:
+Each workspace has its own `.env.example`. Key variables:
 
 ```bash
-# Required by most agents
 SLACK_BOT_TOKEN=xoxb-...         # From api.slack.com/apps
 
 # Incident Commander
 NEON_DB_URL=postgresql://...     # Neon connection string
-GEMINI_API_KEY=AIza...           # For AI diagnosis (OpenAI optional)
-OPENAI_API_KEY=sk-proj-...       # Primary LLM (falls back to Gemini)
-AWS_REGION=us-west-2             # AWS region to monitor
+OPENAI_API_KEY=sk-proj-...       # Primary LLM
+GEMINI_API_KEY=AIza...           # Fallback LLM
+AWS_REGION=us-east-1
 
 # Dev Monitor
 GITHUB_TOKEN=ghp_...             # GitHub PAT (repo + workflow read)
-NEON_API_KEY=napi_...            # Neon management API
+NEON_API_KEY=napi_...
 
 # Personal Assistant
 GMAIL_CREDENTIALS=/path/to/gmail-credentials.json
@@ -480,7 +439,6 @@ GMAIL_TOKEN=/path/to/google-token.json
 
 # Squad Brain
 SLACK_WEBHOOK_URL=https://hooks.slack.com/services/...
-OPENCLAW_TOKEN=...               # From openclaw.json
 ```
 
 ---
@@ -509,7 +467,7 @@ metrics                 MTTD / MTTA / MTTR breakdown
 
 ## Why Not Just Use PagerDuty?
 
-| | OpenClaw | PagerDuty + Datadog + Rootly |
+| | This Platform | PagerDuty + Datadog + Rootly |
 |--|---------|------------------------------|
 | Monthly cost | $0 | ~$800–1,500 |
 | AI root cause analysis | ✅ GPT-4o / Gemini | ✅ (paid add-on) |
@@ -521,36 +479,11 @@ metrics                 MTTD / MTTA / MTTR breakdown
 | Customizable to your stack | ✅ full source | ❌ |
 | Postmortems | ✅ AI-generated | Limited |
 
-OpenClaw trades managed infrastructure for full control and zero subscription cost. Every behaviour is in code you own.
-
----
-
-## Extending OpenClaw
-
-Adding a new agent takes about 30 minutes:
-
-1. **Create the workspace directory** — `workspace-your-agent/`
-2. **Write a `SOUL.md`** — define identity, responsibilities, and communication style
-3. **Write a `TOOLS.md`** — document what APIs and tools the agent can use
-4. **Register in `openclaw.json`** — add name, workspace path, and capabilities
-5. **Write scripts** — each script is a standalone Node.js file that does one job
-6. **Add to the Agent Bridge** — register capabilities so other agents can route to it
-
-The platform imposes no framework. Agents are just directories with opinionated conventions.
-
 ---
 
 ## Security
 
 All secrets are stored in per-workspace `.env` files, never in source code.
-
-```
-.gitignore covers:   .env, *.env, identity/, devices/, credentials/,
-                     gmail-credentials.json, google-token.json, openclaw.json,
-                     *.bak, logs/
-```
-
-File permissions on all credential files: `600` (owner read/write only).
 
 See [SECURITY.md](SECURITY.md) for the full credential inventory and rotation checklist.
 
@@ -559,9 +492,5 @@ See [SECURITY.md](SECURITY.md) for the full credential inventory and rotation ch
 <div align="center">
 
 Built by **Aditya Pratap** — [GitHub](https://github.com/akkupratap323)
-
-Built on [OpenClaw](https://github.com/openclaw) · Powered by [Claude Code](https://claude.ai/code) · [OpenAI](https://openai.com) · [Gemini](https://deepmind.google/gemini) · [Neon](https://neon.tech) · [AWS](https://aws.amazon.com)
-
-*Inspired by PagerDuty, Rootly, incident.io, Datadog — built without the invoice.*
 
 </div>
