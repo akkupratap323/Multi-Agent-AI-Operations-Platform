@@ -39,7 +39,7 @@ curl -s -H "Authorization: Bearer " \
 ```bash
 curl -s -X POST -H 'Content-type: application/json' \
   --data '{"text":"YOUR MESSAGE HERE"}' \
-  
+  ${SLACK_WEBHOOK_URL}
 ```
 
 ## IFTTT Webhook — Post a Tweet
