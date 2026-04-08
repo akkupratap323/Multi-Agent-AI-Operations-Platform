@@ -14,9 +14,7 @@
 
 <br/>
 
-<video src="https://github.com/akkupratap323/Multi-Agent-AI-Operations-Platform/releases/download/v1.0-demo/openclaw.part.2.mp4" controls width="100%"></video>
-
-**[▶ Can't see the video? Watch on LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7429348815134081024/)**
+[![Watch the platform demo](https://img.shields.io/badge/▶%20Watch%20Full%20Demo-LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/feed/update/urn:li:activity:7429348815134081024/)
 
 </div>
 
